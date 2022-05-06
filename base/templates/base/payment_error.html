@@ -1,0 +1,30 @@
+{% extends 'base/template.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="d-md-flex justify-content-md-center align-items-md-center"
+         style="height: 100%; width: 100%; position:fixed; left: 300px">
+        <div class="container">
+            <div class="row">
+                <div class="col" style="max-width: 10%">
+                    <img src="{% static 'images/icon_error_Leovinus.svg' %}"
+                         alt="Success icon"
+                         style="">
+                </div>
+                <div class="col">
+                    <h1>Error</h1>
+                    <p>Your (fake) payment was not processed correctly.</p>
+                    <p style="position: relative; top:-10px" class="font-italic" id="page_err"></p>
+                </div>
+            </div>
+            {% include 'base/payment_footerButtons.html' %}
+        </div>
+    </div>
+
+    {{ reason|json_script:"ady_reason" }}
+
+    <script type="text/javascript">
+        document.getElementById('page_err').innerHTML = JSON.parse(document.getElementById('ady_reason').textContent)
+    </script>
+
+{% endblock content %}

@@ -1,0 +1,20 @@
+<!-- Contain buttons used in payment result pages: payment_success, _pending, _error -->
+
+<div class="row m-3" style="position: relative; left: 20px;max-width: 400px">
+    <div class="col">
+        <div class="card">
+            <a href="/country/" type="button" class="btn btn-outline-secondary">🌍 Return to country page</a>
+        </div>
+        <div class="card">
+            <a href="/cart/" type="button" class="btn btn-outline-secondary">🛒 Return to cart page</a>
+        </div>
+        <div class="card">
+            <a href="#" id="goto_checkout" type="button" class="btn btn-outline-secondary">💰 Return to drop-in page</a>
+            <script type="text/javascript">
+                document.getElementById('goto_checkout').addEventListener('click', function () {
+                    window.location.href = '/payment/checkout/' + localStorage.getItem('country_code')
+                })
+            </script>
+        </div>
+    </div>
+</div>

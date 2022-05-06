@@ -1,0 +1,51 @@
+{% extends 'base/template.html' %}
+{% load static %}
+{% block content %}
+
+    <script src="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/3.6.1/adyen.js"
+            integrity="sha384-hUb/CFxzLJZWUbDBmQfccbVjE3LFxAx3Wt4O37edYVLZmNhcmVUyYLgn6kWk3Hz+"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://checkoutshopper-live.adyen.com/checkoutshopper/sdk/3.6.1/adyen.css"
+          integrity="sha384-l5/gSrWMFWCKnEqoG1F21fvhDesLnZt/JlXjkA0FWp6E68Pc/9mxg+nPvvx+uB4G"
+          crossorigin="anonymous">
+
+    <div class="d-md-flex justify-content-md-center align-items-md-center"
+         style="position: relative; top: 80px">
+        <div class="container" style="width: 50%">
+            <div class="row">
+                <div class="col">
+                    <h1>Checkout</h1>
+                    <p>Please pay using Adyen's Drop-in below - <b>This is a TEST app</b></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="m-2" id="dropin-container"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-3">
+                <div class="col">
+                    <div class="card">
+                        <a href="/country/" type="button" class="btn btn-outline-secondary">🌍 Return to country page</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <a href="/cart/" type="button" class="btn btn-outline-secondary">🛒 Return to cart page</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{ paymentMethods|json_script:"paymentMethods" }}
+    {{ originKey|json_script:"originKey" }}
+    {% csrf_token %}
+
+	<script type="text/javascript" src="{% static "js/getCookie.js" %}"></script>				<!-- To grab the CSRF cookie -->
+	<script type="text/javascript" src="{% static "js/drop-in_actionState.js" %}"></script>		<!-- To handle different state.action -->
+	<script type="text/javascript" src="{% static "js/drop-in_checkout.js" %}"></script>		<!-- Handle Adyen Drop-in component -->
+
+{% endblock content %}

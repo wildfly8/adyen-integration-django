@@ -1,0 +1,63 @@
+{% extends 'base/template.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="d-md-flex justify-content-md-center align-items-md-center"
+         style="height: 100%; width: 100%; position:fixed; left: 30%">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>Hello!</h1>
+                    <p>Welcome to this test shop</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 18rem">
+                        <div class="card-header font-weight-bold">Please choose your country:</div>
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <img src="{% static 'images/nl.png' %}" class="img-responsive inline-block"
+                                     style="max-width: 8%"
+                                     alt="Country flag"/>
+                                <button type="button" class="btn btn-link" style="padding: 0" id="country_NL">
+                                    Netherlands
+                                </button>
+                            </li>
+                            <li class="list-group-item">
+                                <img src="{% static 'images/at.png' %}" class="img-responsive inline-block"
+                                     style="max-width: 8%"
+                                     alt="Country flag"/>
+                                <button type="button" class="btn btn-link" style="padding: 0" id="country_AT">Austria
+                                </button>
+                            </li>
+                            <li class="list-group-item">
+                                <img src="{% static 'images/fr.png' %}" class="img-responsive inline-block"
+                                     style="max-width: 8%"
+                                     alt="Country flag"/>
+                                <button type="button" class="btn btn-link" style="padding: 0" id="country_FR">France
+                                </button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById('country_NL').addEventListener("click", function () {
+            localStorage.setItem('country_code', "NL");
+            window.location.href = "/cart/"
+        });
+        document.getElementById('country_AT').addEventListener("click", function () {
+            localStorage.setItem('country_code', "AT");
+            window.location.href = "/cart/"
+        });
+        document.getElementById('country_FR').addEventListener("click", function () {
+            localStorage.setItem('country_code', "FR");
+            window.location.href = "/cart/"
+        });
+    </script>
+
+{% endblock content %}

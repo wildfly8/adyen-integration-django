@@ -1,0 +1,79 @@
+{% extends 'base/template.html' %}
+{% load static %}
+{% block content %}
+
+    <div class="d-md-flex justify-content-md-center align-items-md-center"
+         style="height: 100%; width: 100%; position:fixed;">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h1>Cart</h1>
+                    <p>Please check your order.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="card-group">
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'images/cake_chocolate.jpg' %}" class="img-responsive inline-block"
+                                 style="max-width: 100%"
+                                 alt="A chocolate cake"/>
+                            <div class="card-body">
+                                <p class="card-text">A simple but tasty grand-ma chocolate cake.</p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <small class="font-weight-bold">1x 4.00€</small>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'images/cake_lemon.jpg' %}" class="img-responsive inline-block"
+                                 style="max-width: 100%"
+                                 alt="A lemon cake"/>
+                            <div class="card-body">
+                                <p class="card-text">A slice of the delicious lemon cake, with some nice meringue on
+                                    top!</p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <small class="font-weight-bold">1x 6.00€</small>
+                            </div>
+                        </div>
+                        <div class="card" style="width: 18rem;">
+                            <img src="{% static 'images/cake_carrot.jpg' %}" class="img-responsive inline-block"
+                                 style="max-width: 100%"
+                                 alt="A carrot cake"/>
+                            <div class="card-body">
+                                <p class="card-text">The world famous carrot cake, straight from the US! Pre-heat before
+                                    use.</p>
+                            </div>
+                            <div class="card-footer text-center">
+                                <small class="font-weight-bold">1x 5.00€</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row m-3">
+                <div class="col">
+                    <div class="card">
+                        <button type="button" class="btn btn-secondary " id="previous_step">Return to previous page
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <button type="button" class="btn btn-success " id="next_step">Confirm order (15.00€)</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        document.getElementById('next_step').addEventListener('click', function () {
+            window.location.href = '/payment/checkout/' + localStorage.getItem('country_code')
+        })
+        document.getElementById('previous_step').addEventListener('click', function () {
+            window.location.href = document.referrer
+        })
+    </script>
+
+{% endblock content %}
