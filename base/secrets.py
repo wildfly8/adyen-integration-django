@@ -4,8 +4,8 @@
 def secrets():
     return {
         'platform': "test",
-        'app_name': "upp",
-        'returnUrl': "http://saasdevs.net",
+        'app_name': "test-drop-in",
+        'returnUrl': "...",
         'merchantAccount': "...",
         'xapikey': '...',
         'originKey': '...',
