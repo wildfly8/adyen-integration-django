@@ -25,13 +25,3 @@ Most merchant-specific info are needs to be registered in `base/secrets.py`. A t
 ## Usage
 1. Collect static files: `manage.py collectstatic`
 1. Start the Django app: `manage.py runserver`
-
-## Usages acknowledgment
-* [Wikipedia Commons - File:Costa carrot cake (13070325384).jpg](https://commons.wikimedia.org/wiki/File:Costa_carrot_cake_(13070325384).jpg)
-* [Wikipedia Commons - File:Mum's lemon meringue pie crop.jpg](https://commons.wikimedia.org/wiki/File:Mum%27s_lemon_meringue_pie_crop.jpg)
-* [Wikipedia Commons - File:Chocolate cake.jpg](https://commons.wikimedia.org/wiki/File:Chocolate_cake.jpg)
-* [Pixabay - Leovinus icons](https://pixabay.com/users/leovinus-615857/)
-
-## License
-The Unlicense - see LICENSE.
-Some code extract are coming from [Adyen documentation](https://docs.adyen.com/checkout/drop-in-web).
